@@ -8,7 +8,7 @@
 ### Отправка СМС
 ```
 var client = new Client(YOUR_API_KEY);
-var pushResponse = await _client.PushMessage()
+var pushResponse = await client.PushMessage()
     .ToMobile()
     .WithText("some text")
     .From(YOUR_SENDER_NAME)
@@ -19,7 +19,7 @@ var pushResponse = await _client.PushMessage()
 ### Отправка сообщения в Telegram с каскадной отправкой СМС
 ```
 var client = new Client(YOUR_API_KEY);
-var pushResponse = await _client.PushMessage()
+var pushResponse = await client.PushMessage()
     .ToTelegram()
     .AndThenToMobile()
     .WithText("some text")
@@ -31,11 +31,11 @@ var pushResponse = await _client.PushMessage()
 ### Получение статуса СМС
 ```
 var client = new Client(YOUR_API_KEY);
-var statusResponse = await _client.GetStatus(SMS_ID).ExecuteAsync();
+var statusResponse = await client.GetStatus(SMS_ID).ExecuteAsync();
 ```
 
 ### Получение профиля с балансом счёта
 ```
 var client = new Client(YOUR_API_KEY);
-var profile = await _client.GetProfile().ExecuteAsync();
+var profile = await client.GetProfile().ExecuteAsync();
 ```
