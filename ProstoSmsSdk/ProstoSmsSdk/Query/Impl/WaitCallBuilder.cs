@@ -11,11 +11,17 @@ namespace ProstoSmsSdk.Query.Impl
             return this;
         }
 
-        public IQuery<WaitCallResponse> WaitFor(ushort waitTime)
+        public IQuery<WaitCallResponse> WaitFor(TimeSpan waitTime)
         {
-            if (waitTime < 60 || waitTime > 300)
+            int sec;
+            unchecked
+            {
+                sec = (int)waitTime.TotalSeconds;
+            }
+            
+            if (sec < 60 || sec > 300)
                 throw new ArgumentException("Допустимые значения от 60 до 300", nameof(waitTime));
-            Parameters["call_protection"] = waitTime.ToString();
+            Parameters["call_protection"] = sec.ToString();
             return this;
         }
 

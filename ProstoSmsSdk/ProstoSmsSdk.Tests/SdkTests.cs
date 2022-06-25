@@ -63,7 +63,7 @@ namespace ProstoSmsSdk.Tests
         {
             var response = await _client.WaitForCall()
                 .From(_testRecipient)
-                .WaitFor(100)
+                .WaitFor(TimeSpan.FromSeconds(100))
                 .ExecuteAsync();
             Assert.AreEqual(_testRecipient, response.WaitingCallFrom);
         }

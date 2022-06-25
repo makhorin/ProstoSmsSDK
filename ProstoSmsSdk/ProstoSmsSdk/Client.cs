@@ -35,7 +35,7 @@ namespace ProstoSmsSdk
         }
 
         /// <summary>
-        /// Создает клиент, который будет обращаться к  http://api.sms-prosto.ru
+        /// Создает клиент, который будет обращаться к  https://ssl.bs00.ru/
         /// </summary>
         /// <returns></returns>
         public static Client CreateHttpsClient(string apiKey)
@@ -44,7 +44,7 @@ namespace ProstoSmsSdk
         }
 
         /// <summary>
-        /// Создает клиент, который будет обращаться к https://ssl.bs00.ru
+        /// Создает клиент, который будет обращаться к http://api.sms-prosto.ru/
         /// </summary>
         /// <returns></returns>
         public static Client CreateHttpClient(string email, string password)
@@ -59,6 +59,24 @@ namespace ProstoSmsSdk
         public static Client CreateHttpsClient(string email, string password)
         {
             return new Client(email, password, "https://ssl.bs00.ru/");
+        }
+
+        /// <summary>
+        /// Создает клиент, который будет обращаться к указанному адресу
+        /// </summary>
+        /// <returns></returns>
+        public static Client CreateClient(string email, string password, string endpoint)
+        {
+            return new Client(email, password, endpoint);
+        }
+
+        /// <summary>
+        /// Создает клиент, который будет обращаться к  указанному адресу
+        /// </summary>
+        /// <returns></returns>
+        public static Client CreateClient(string apiKey, string endpoint)
+        {
+            return new Client(apiKey, endpoint);
         }
 
         /// <summary>

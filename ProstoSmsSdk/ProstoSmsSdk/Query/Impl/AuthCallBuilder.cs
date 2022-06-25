@@ -20,7 +20,7 @@ namespace ProstoSmsSdk.Query.Impl
             code = code.Trim();
             if (code.Length < 3 || code.Length > 4 || !ushort.TryParse(code, out _))
                 throw new ArgumentException(
-                    "Для использования данного функционала допускаются только 3-х значные (диапазон 001-999) или 4-х значные (диапазон 0000-9999) коды");
+                    "Для использования данного функционала допускаются только 3-хзначные (диапазон 001-999) или 4-хзначные (диапазон 0000-9999) коды");
 
             Parameters["text"] = $"Ваш код авторизации: {code}";
             return this;
